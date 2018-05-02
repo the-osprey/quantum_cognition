@@ -1,0 +1,373 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx,amsmath,amsthm,amssymb,fullpage,natbib}
+\usepackage[colorlinks,citecolor=blue]{hyperref}
+\usepackage{mdframed}
+\usepackage{tcolorbox}
+\usepackage{enumerate}
+
+\newcommand\citepos[1]{\citeauthor*{#1}'s\ (\citeyear{#1})}
+\DeclareMathOperator{\arccosh}{arccosh}
+
+\begin{document}
+	\title{Quantum Cognition and Decisions Under Conflict: Using Probability Interference to Model and Predict Projection Bias}
+	\author{Evan Walsh \\ University of California, Berkeley}
+	
+	
+	\maketitle
+	
+\begin{abstract}
+	The innovative application of quantum mechanical concepts of probability to cognitive science has provided new, meaningful ways to more accurately model human decision making. This paper uses the quantum probabilistic idea of interference to explain projection bias and its violations of the classical law of total probability and expected utility theory. In particular, \citepos{khrennikov_haven_2009} contextual probability model is applied to a study done by \cite{read_leeuwen_1998} on hunger and projection bias. 
+\end{abstract}
+	
+	\section{Introduction}
+	Most decisions regarding the future are made under some form of conflict or uncertainty. Oftentimes, this arises from one's state of being at the time a decision is made, be it hunger, the weather, or the outcome of a prior conversation. According to many cognitive models, when current decisions have delayed consequences, the preferences relevant to a decision are those that will prevail when the consequences occur. Yet, fieldwork in the social sciences has found that an individual's current state has a significant effect on choices who's consequences are delayed into the future.\footnote{See, for example, \cite{badger_bickel_giordano_jacobs_loewenstein_marsch_2004} and \cite{conlin_odonoghue_vogelsang_2007}.} Despite this, most decision making models from economics to cognitive science to machine learning do not account for this phenomena. They assume one's state at the time a choice is made has little effect on their delayed decision. 
+	
+	That's not to say that researchers have not tried to model and understand how humans make judgments under uncertainty and conflict. Two approaches have become widely used. The first, ushered in by \citepos{rogow_simon_komarovsky_1957} concept of bounded rationality, postulates that humans rely on heuristics such as representativeness and anchoring to make decisions. On the other hand, the 'rational' approach anchored by \citepos{samuelson_1937} rational expected utility model relies on Kolmogorovian axioms of probability. Though this rational approach is effective in many instances, human decision making routinely breaks axiomatic laws of classical probability such as the sure thing principle and law of total probability \citep{tversky_shafir_1992}.
+	
+	A third approach known as quantum cognition has emerged to model human decision making. Effectively a synthesis between the former two approaches, quantum cognition has a recently-developed psychological foundation in cognitive science that draws on rigorous mathematics originally used in quantum physics \citep{bruza_wang_busemeyer_2015}. Importantly, this approach \textit{does not} proceed from the assumption that there is something quantum-like occurring in the brain. Rather, it draws inspiration from the dynamic principles associated with the \textit{mathematics} used in quantum theory. In particular, it uses a superset of axioms from Kolmogorovian (classical) probability theory that were originally formulated by mathematician John von Neumann \citep{neumann_1932}. As this paper will demonstrate, the mathematical properties of quantum probability and its solid underpinning in cognitive science provides a robust way to both explain and model violations in probability\footnote{in the classical sense--not quantum probabilistic!} that occur under decisions made with delayed consequences. 
+	
+
+	%assumes humans to be rationally bounded while using axiomatic probability theory to model and predict . In particular, it draws from rigorous mathematics originally formulated in the field of quantum physics. These probabilistic axioms come from a superset of Kolmogorovian (classical) probability theory that was initially developed for quantum theory by mathematician John von Neumann \cite{neumann_1932}. Despite its ostensibly distant relationship with cognitive science, recent research done by \cite{bruza_wang_busemeyer_2015} has built a foundation for the theory in cognitive science.% 
+	
+%	\section{How does probability interference explain projection bias?}
+	\section{Probability interference and projection bias}
+	
+		Projection bias refers to a common feature of human thinking that assumes one's tastes and preferences will remain the same \cite{loewenstein_odonoghue_rabin_2003}. Of course, humans tend to be bad at predicting changes in preferences, even over short periods of time. Both heuristic and expected utility theory have attempted to both explain and model this phenomena. Yet, both models have either numerical or conceptual shortcomings that fail to address the underlying cognitive theory of projection bias. On the other hand, quantum probability theory provides a framework that does not have these shortcomings. It provides a framework that both explains and models projection bias.
+		
+%	\subsection{How is projection bias currently modeled?}
+	\subsection{Current models of projection bias}
+	Projection bias has normally been excluded from the standard expected utility model. Looking at the general framework for expected utility
+	\begin{align} 
+	U = \sum_{t=0}^{\infty}\delta(t)\sum_{s_t}^{}p(s_t)u(x_t|s_t)
+	\end{align}
+	 We notice that the term u(.), which implicitly includes preferences, is the same in every time period. In other words, preferences are dynamically consistent. However, preferences routinely change--too such an extent that society has developed institutions and plans to prevent negative preference changes \citep{shefrin_thaler_1977}. As a consequence, these plans, such as Christmas Clubs, routinely fail to optimize the above equation. In the long term, preferences can change by acquiring new tastes or by changing one's appetite for risk. In the short term, physical states such as hunger or the weather outside can also change one's preferences. These reversals are so well understood in our society that sayings such as "don't shop while you're hungry" are known by most everyone. Yet, most theoretical framework does not reflect this widely known fact. 
+	 
+	 Adjustments to the standard model have been made to adapt to this reality. Specifically,  \cite{loewenstein_odonoghue_rabin_2003} developed a new model to help predict projection bias by modifying expected utility theory. Though a utility of consumption at time $\tau$ is commonly written as $u(c_\tau)$, they introduce a new term $s_\tau$ where $s_\tau$ is the period $\tau$ state (e.g. hungry or satiated) of the decision maker. Thus, the new expected utility model is:
+	 \begin{align}
+	 U^t (c_t, \dots, c_T) = \sum_{\tau = t}^{T}\delta^T \sum_{s_\tau}^{}p(s_\tau)\tilde{u}(c_\tau, s_\tau|s_t)
+	 \end{align}
+	where 
+	\begin{align} 
+	\tilde{u}(c_\tau, s_\tau|s_t) = (1-\alpha)u(c,s)+\alpha u(c,s')
+	\end{align}
+	is a model for projection bias, with $ 0\leq \alpha \leq 1$ as the coefficient for projection bias.
+	
+	Though this model is more accurate at describing human decision making under conflict than the traditional model, the $\alpha$ coefficient is essentially arbitrary. It has no underlying cognitive significance. It is simply a numerical component that makes the model work better. Consequently, it leaves much to be desired in this model. 
+	
+%	\subsection{How probability interference maps onto projection bias}
+		\subsection{Mapping probability interference onto projection bias}
+	To build an accurate model based on a cognitive framework, we instead look at how probability theory is applied to human decision making. Based on much fieldwork done in the social sciences, it seems that humans do not function within the axioms set by classical probability theory. Specifically, projection bias seems to induce violations in commutativity, which consequently leads to violations in the law of total probability. 
+	
+	Classical (Kolmogorovian) probability theory's set-theoretic foundation implies that events can always be combined. As a consequence, logical conjunction is commutative (e.g. "A and B" is the same as "B and A"). In other words, the ordering of events should not matter. 
+	
+	As it turns out, however, human decision making is not commutative. \cite{bruza_wang_busemeyer_2015} clarify the idea of non-commutativity in human decision making by providing an example that is well known in the world of polling and sampling. Consider a situation where pollsters ask subjects to rate two politicians.  For example, asking subjects to rate George W. Bush first, and then Donald Trump will produce markedly different results if the order is reversed. In effect, this simple yet pertinent example shows how humans regularly break this underpinning axiom of classical probability theory. 
+	
+	On the other hand, the framework provided by quantum cognition accounts for this seemingly contradictory phenomena. In particular, John von Neumann's axiomatic approach to quantum probability replaces set theory with projective geometry \citep{neumann_1932}. This approach is non-commutative, meaning the sequence of event A and then B is not the same as event B occurring before A. If applied correctly, this gives us the ability to both model and explain why ordering does matter in decision chains. Box 1 provides a clear overview of some of the theory's key axioms and theories.
+
+\begin{tcolorbox}[
+	colframe=black!25,
+	colback=black!10,
+	coltitle=black!20!black,  
+	title= \textbf{Box 1}. Key axioms and theorems of quantum probabiliy theory]
+	\begin{enumerate}
+		\item Events are subspaces of a Hilbert Space, $H$. An event A corresponds to subspace $H_A$ with associated projector $P_A$, while an event B corresponds to subspace $H_B$ with its associated projector $P_B$.
+		\item If $P_A \cdot P_B = P_B \cdot P_A$ (the projectors are commutative), then events A and B are considered compatible. Notice this implies classical probability theory will hold. Otherwise, the events are considered incompatible, meaning quantum probability theory is needed. 
+		\item The state of a cognitive system is represented by a unit length vector $S$ in the associated vector space. The probability of an event A is: $P(A) = 	\Vert P_A \cdot S \Vert^2$
+		\item $\Vert P_A \cdot S \Vert ^2 \geq 0$ and $\Vert P_H \cdot S \Vert ^2 = 1$
+		\item $P_A \cdot P_B = 0 \implies \Vert(P_A + P_B) \cdot S \Vert ^2 = \Vert P_A \cdot S \Vert ^2 + \Vert P_B \cdot S \Vert ^2$
+		\item The probability of event B given A is: $P(B|A) = \frac{\Vert P_B \cdot P_A \cdot S \Vert ^2}{\Vert P_A \cdot S \Vert ^2}$
+		\item The law of total probability is: $\Vert P_B \cdot S \Vert ^2 = \Vert P_B \cdot P_A \cdot S \Vert ^2 + \Vert P_B \cdot P_{A^c} \cdot S \Vert ^2$. A violation occurs when the terms on either side differ. 
+	
+	\end{enumerate}
+	\end{tcolorbox}
+
+	From the above definitions, we can conceptually extrapolate four key ideas from quantum probability theory and think of them with respect to cognitive decision making. 
+	\begin{enumerate}
+		\item An event is no longer a subset from a universal set; It is now a based on subspaces of a vector space.
+		\item We no longer assign probabilities with the classical probability function $P(.)$; instead, we have a state vector $S$ to assign the probabilities based on a given state of nature (e.g. one's current mental state). This is analogous to the distributed input across nodes in a connectionist neural network \citep{stewart_eliasmith_2013}.
+		\item Quantum theory has the principle of superposition. That is, unlike in classical probability where a system is in a definite state at any moment, a system is in an indefinite superposition state until measurement is performed. So, like in the textbook double slit experiment with a photon who's state is indefinite until measurement, one's answer to a polling question is indefinite until the answer is elicited. {\sf Which axiom above does this follow from? I believe from 3 since S is a projection}.
+		\item If a projection from subspace A to B is the same as a projection from subspace B to A, events A and B are considered compatible; that is, traditional probability theory can be used. If not, they are considered incompatible, and quantum probability theory must be used as there is interference. 
+	\end{enumerate}
+
+	
+	
+	To give some intuition for this new idea of one having a state $S$ represented by a vector, we will extend the above example on politician rankings.
+	
+	We have three outcome events: event A (liking Bush's policies), event B (being neutral), or event C (not liking Bush's policies). So, the probability of A or B is determined by the projection of vector $S$ onto the plane spanned by the A and B axes. Call that projection $T$. 
+	
+	However, before this question, the subject is asked about how they rate Trump. Since this event is incompatible with the other, it elicits a new set of three axes, U (liking Trump's policies), V (being neutral) or W (not liking Trump's policies). Though the U-V-W axes are rotated from the A-B-C axes, the subject's state vector remains the same. 
+	
+	So now, the probability of A or B (about positive or neutral feelings to Bush's policies) is not the projection of $S$ onto plane AB. Rather, by answering the first question (say you decide on V), your cognitive state (i.e. your new state vector) becomes aligned with ray V. By being certain about V, you are now superposed with respect to your next decision, the A-B-C axes.  Furthermore, your state vector $S$ has changed, changing your projection onto the AB plane. Consequently, though the question has not changed, the subject's propensity to answer one way or the other has. We can think of this rotation as being accomplished through an interconnected neural network system \citep{stewart_eliasmith_2013}.
+	
+	Conceptually, we can extend this idea to projection bias. In a study by \cite{read_leeuwen_1998}, an either hungry or satiated person is asked to pick a snack one week in advance (where they will be either hungry or satiated). The results showed that--even though they were going to be at the same level of hunger a week in advance and that their current level of hunger had a negligible effect on their well-being a week in advance--a hungry person would pick an unhealthy snack one week in advance at a much higher rate than a satiated person. In fact, they also allowed people to defect from the choice they made one week earlier. This highlights our inaccuracy at predicting food desires a week in advance. 
+	
+	We can think of being asked about one's future hunger as being two decisions. First, the subject considers their current level of hunger. Then, they consider their potential future feelings of hunger. These two decisions are incompatible; by deciding on their current level of hunger, you 'measure' your state vector and update it to the first decision's plane, which then superposes it with respect to your future decision. Effectively, this probability interference by your current state leads to the difference found in the Lowenstein et al experiment.  
+
+%	\section{Applying a contexual quantum probability model to projection bias}
+	\section{Contexual quantum probability and projection bias}
+	 
+	 \citepos{khrennikov_haven_2009} contextual probability model (a generalization of the two-dimensional quantum model proposed by \cite{busemeyer}), which has successfully modeled violations of the sure-thing principle as seen in \cite{tversky_shafir_1992}, can be naturally extended to decisions that exhibit projection bias. In particular, it employs the notion of a context $C$. In quantum mechanics, $C$ is a complex of experimental physical conditions. Employing this idea to decision making, a context can be thought of as a complex of experienced mental conditions. So, while conditioning is performed with respect to an event in classical probability theory, a quantum probabilistic model conditions with respect to a context, which \cite{Khrennnikov10} rigorously lays out.
+	 
+	  More formally, a probabilistic model $P$ has two key components: a set of contexts, $C$, and a set of observables $O$. An observable $a \in O$ can be measured under $C \in C$. The set of possible values of an observable $a \in O$ is denoted by $X_a$. From this follows two axioms, as is elaborated on in \cite{Khrennnikov10}: {\sf Is this following list ok or is box nicer?/Is there specific latex formating that is used? Please check this for me. Found on K and Haven 2007 pages 381-382! Want to make sure I am making sense, especially with the postulate}:
+	  \begin{itemize}
+	  	\item[] \textbf{Axiom 1.} For any observable $a \in \mathcal{O}$ and its value $y \in X_a$ there is a context $C_y$). If we perform a measurement of observable $a$ under the conditions $C_y$, we obtain the value $a = y$ with probability equals 1. The set of contexts $\mathcal{C}$ contains $C_y$ selection context for all $ a \in \mathcal{O}$ and $ y \in X_a$.
+	  	\item[] \textbf{Axiom 2.} A contextual probability $P(a=y|C)$ is defined for any context $C \in \mathcal{C}$ and observable $a \in \mathcal{O}$
+	  	\item \textbf{Postulate 1.} Also known as the Weak von Neumann Postulate for a Mental Observable. For any pair of supplementary observables $a, b$, the transition probability $P(b=x|C_y)$ is determined solely by the prior decision ($C_y$ context where selection $a=y$ is made. 
+	  \end{itemize}
+
+	 
+	 How can this methodology developed above be applied to projection bias? For brevity, we will use hunger states of S (satisfied) or H (hungry) as a stand-in variables for more general states (e.g. they could also be hot or cold, angry or content, etc.). We will also use $\pm$ to denote a decision based on the state a person is in.  We do so because this model will be applied onto \cite{read_leeuwen_1998}, which gathered data on delayed decisions and hunger.  Thus, we define the following:
+	 \begin{itemize}
+	 	\item Define the outcome $A$ of being hungry at the time of making the decision a week in advance as $a=H$ and the outcome of being satiated as $a=S$.
+	 	\item Context $C$ occurs when someone maintains the snack decision they made a week earlier and do not know what their true hunger state will be at the time they receive the snack.
+	 	\item Context $C_{H}^A$ indicates when someone is hungry at the time they receive their snack ($a=H$).
+	 	\item Context $C_S^A$ indicates when someone is satiated at the time they receive their snack ($a=s$).
+	 	\item The experiment participant is denoted by $B$. 
+	 	\item $B$ has decisions $b=unh$, picking an unhealthy snack, and $b=h$, picking a healthy snack. For brevity, we now denote $unh$ with $+$ and $h$ with $-$.
+	 	\item The context that $B$ makes their decision $b$ in is either $C$, $C_{H}^A$ and $C_S^A$, which results in the following contextual probabilities:
+	 	\begin{itemize}
+	 	\item $P(b=+|C)$ is the probability $B$ decides to pick an unhealthy snack a week in advance and stick with that choice.
+	 	\item $P(b=-|C)$ is the probability $B$ decides to pick a healthy snack a week in advance and stick with that choice. 
+	 	\item $P(b=\pm|C_S^A)$ is the probability of $B$ changing their prior decision to an unhealthy or healthy snack, given they are in a satiated state at the time they receive their snack.
+	 	\item $P(b=\pm|C_H^A)$ is the probability of $B$ changing their prior decision to an unhealthy or healthy snack, given they are in a hungry state at the time they receive their snack.
+	 \end{itemize}
+	 \end{itemize}
+	 	 
+	 As has been described, project bias routinely violates the law of total probability. In the classical case, the law of total probability is 
+	 \begin{align}
+	 P(b=\pm |C)=P(a=H|C)P(b=\pm|C_S^A) + P(a=S|C)P(b=\pm|C_H^A)
+	 \end{align}
+	 
+	 However, we can explain why the classical law is violated by using the quantum case, which is
+	\begin{align}
+		P(b=\pm|C)=P(a=H|C)P_{\pm_S} + P(a=S|C)P_{\pm_H} + 2\cos \theta_{\pm} \sqrt{\Pi_{\pm}}
+	\end{align}
+	where $P_{\pm_S} = P(b=\pm|C_S^A) $ and $P_{\pm_H} \equiv P(b=\pm|C_H^A)$.
+	
+	The difference between classical and quantum laws, $ 2\cos \theta_{\pm} \sqrt{\Pi_{\pm}}$ is represented by the variable $\delta_\pm$ where
+	\begin{align}
+	\delta_\pm = 2\cos\theta_\pm\sqrt\Pi_\pm 
+	\end{align}
+	
+	and
+	
+	\begin{align}
+	\Pi_{\pm} = P(a=H|C)P(a=S|C)P_{\pm_H}P_{\pm_S}
+	\end{align}
+	
+	The normalized coefficient of incompatability contexts, $\lambda_\pm$, is
+	\begin{align}
+	\lambda_\pm = \frac{\delta_\pm}{2\sqrt\Pi_\pm}
+	\end{align}	 
+	
+	and the phase $\theta_\pm$ is
+	\begin{align}
+	\theta_{\pm} =
+	\begin{cases}
+	\arccos \lambda_\pm & \text{if } |\lambda_\pm| \leq 1 \\
+	\arccosh |\lambda_\pm| & \text{otherwise}
+	\end{cases}
+	\end{align}
+	
+%	\section{Application of probability interference to Read et al.}
+\section{Application: projection bias and hunger}
+	Now that we have developed a framework which applies quantum probability to a setting with projection bias, we can begin to apply it to studies that exhibit this phenomena. We will apply it to the Read and van Leeuwenstein study, which contains all the necessary data for the model defined above. 
+	
+\subsection{Overview of \cite{read_leeuwen_1998}}
+	In their 1998 study, Read and van Leeuwen study how an individual's current state of appetite affects choices that apply far into the future. 200 participants made advance choices between snacks that were healthy (i.e. fruit) or unhealthy (i.e. chips), which they would receive in one week when they were either hungry (late in the afternoon) or satisfied (right after lunch). At the time of their first decision, the researchers also manipulated participants' hunger such that they were either hungry or satisfied. One week later at the designated time, subjects were then given a choice (which they did not know of a week earlier) in which they could change their snack decision at no consequence. This resulted in four groups, each with two subgroups. The four main groups were:
+	\begin{itemize}
+		\item HH: the subject was in a hungry state at the initial decision and also hungry a week later when they received their snack.
+		\item SH: The subject was in a satiated state at the initial  decision and then hungry a week later when they received their snack.
+		\item HS: The subject was in a hungry state at the initial decision and then satisfied a week later when they received their snack.
+		\item SS: The subject was in a satisfied state at the initial decision and also satisfied a week later when they received their snack. 
+	\end{itemize}
+	The subgroups, which were based on whether a subject changed their initial snack decision. Those who did not stick with the decision they made a week earlier fall under the "immediate" category. Those who kept their advance choice fall under the "advance" category. 
+	
+	As the researchers predicted, the results, as shown in Figure \ref{fig:r}, show that choices made in advance were influenced by current hunger as well as future hunger. Hungry participants chose unhealthy snacks at a higher rate than satisfied ones. Additionally, participants' preferences were dynamically inconsistent; they chose far more unhealthy snacks for immediate choices than for advance choice. 
+	\begin{figure}[h]
+%	\includegraphics[trim = 0.5in 6.5in 0.6in 0.8in, clip, width=1.0\textwidth,page=10]{ReadvanLeeuwen98}
+	\caption{Percent of unhealthy snacks chosen as a function of hunger condition. {\em Source: Figure 1 of \cite{read_leeuwen_1998}.} NOTE: I have my own nicer one but was having issues putting it in. Will get that done}
+	\label{fig:r}
+	\end{figure}
+
+	\subsection{Contextual quantum probability and hunger}
+	Based on our earlier discussion, we can see that data in Figure \ref{fig:r} reproduced from \cite{read_leeuwen_1998} is suitable to be used by \citepos{khrennikov_haven_2009} contextual probability model. 
+	
+	Firstly, we must split the four groups (HH, HS, SH, SS) into two separate ones. The first group contains the HH and HS categories, and the second group contains the SH and SS categories. This is done to control for the initial state of hunger or satiety (the first letter in their category; \textbf{H}S), which is not captured in this version of the contextual probability mode. 
+	
+	\subsubsection{Application of contextual model to HH and HS categories}	
+	Looking at the data we have for these two categories, we get $P(b=+|C) = \frac{0.78+0.42}{2}= 0.60$ and $P(b=-|C) = 1-0.60=0.40$. These two probabilities represent the chance a subject picks an unhealthy or a healthy snack in advance given they do not know their true\footnote{True in the sense that it is the level of hunger they will observe at that very moment a week in advance. Though someone may have an idea of what their hunger level may feel like, it is impossible to exactly understand what their hunger will be one week in advance until it is measured at that instant. This closely relates to the idea of superposition in a quantum sense.} hunger level one week in advance. 
+	
+	We will first consider the HH and HS group. The transition probabilities are 
+	\begin{align}
+	P =
+	\left( \begin{array}{cc}
+	P_{H, +} & P_{S, +} \\
+	P_{H, -} & P_{S, -}  \\
+	\end{array}  \right)
+	= 
+	\left( \begin{array}{cc}
+	.92 & .82 \\
+	.08 & .18  \\
+	\end{array} 
+	\right)
+	\end{align}
+	
+	Given the prior probabilities of 
+	\begin{align}
+	P(a=H|C) = P(A=S|C) = 0.50
+	\end{align}
+	 which is the chance someone was assigned to one group or the other (equal chance by the experiment's design), we find the difference between classical and quantum laws of total probabilities, as was noted in equation (6) , we get
+	 \begin{align}
+	\delta_{+} &= P(b=+|C) - P(a=H|C)P_{H, +} - P(a=S|C)P_{S, +} \\
+	\delta_{+} &= 0.60 - 0.50 \cdot 0.92 - 0.50 \cdot 0.82 \\
+	\delta_{+} &= -0.27
+	\end{align}
+	
+	and
+	
+	\begin{align}
+	\delta_{-} &= P(b=-|C) - P(a=H|C)P_{H, -} - P(a=S|C)P_{S, -} \\
+	\delta_{-} &= .40 - 0.50 \cdot .08 - 0.50 \cdot 0.18 \\
+	\delta_{-} &= 0.27	
+	\end{align}
+	 	
+	 Proceeding similarly for $\Pi_\pm$, we get
+	
+	\begin{align}
+	\Pi_{+} &= P(a=H|C)P(a=S|C)P_{H, +}P_{S_+}\\
+	\Pi_{+} &= 0.50 \cdot 0.50 \cdot 0.92 \cdot 0.82\\
+	\Pi_{+} &= 0.1886
+	\end{align}
+	
+	and 
+	
+	\begin{align}
+	\Pi_- &= P(a = S|C)P(a=H|C)P_{H, -}P{S, -}\\
+	\Pi_-&= 0.50 \cdot 0.50 \cdot .08 \cdot .18\\
+	\Pi_-&= .0036
+	\end{align}
+
+	From this, we can get the normalized coefficients of incompatibility as being
+	\begin{align}
+	\lambda_{+} = \frac{\delta_{+}}{2 \sqrt{\Pi_{+}}}= \frac{-0.27}{2\sqrt{0.1886}} \approx -0.312
+	\end{align}
+	and 
+	\begin{align}
+	\lambda_{-} = \frac{\delta_{-}}{2 \sqrt{\Pi_{-}}}= \frac{0.27}{2\sqrt{0.0036}} = 2.25
+	\end{align}
+
+	Thus, from the normalized coefficient of incompatibility of contexts, the phases follows bellow. Notice that since $|\lambda_{-}|$ is not within the range of $\arccos$, we use arccosh instead. 
+	
+	\begin{align}
+	\theta_{+} &= \arccos(\lambda_{+}) = \arccos(|-0.312|) \approx 1.887 \  \text{radians} \\
+	\theta_{-} &= \text{arccosh}(\lambda_{-}) = \text{arccosh}(|2.25|) \approx 1.451\ \text{radians}
+	\end{align}
+	
+	\subsubsection{Application of contextual model to SH and SS categories}
+	Now considering the other two categories, we have $P(b=+|C) = \frac{0.56+0.26}{2}= 0.41$ and $P(b=-|C) = 1-0.41=0.59$. Again, the two probabilities represent the chance a subject picks an unhealthy snack in advance given they do not know their true hunger level one week in advance. 
+	
+	Now, we get the new transition matrices from looking at the two other categories:
+	
+		\begin{align}
+	P =
+	\left( \begin{array}{cc}
+	P_{H, +} & P_{S, +} \\
+	P_{H, -} & P_{S, -} \\
+	\end{array}  \right)
+	= 
+	\left( \begin{array}{cc}
+	.88 & .70 \\
+	.12 & .30  \\
+	\end{array} 
+	\right)
+	\end{align}
+	
+	Given the same prior probabilities of 
+	\begin{align}
+	P(a=H|C) = P(A=S|C) = 0.50
+	\end{align}
+	and again taking the difference between classical and quantum laws of total probabilities, we get
+	\begin{align}
+	\delta_{+} &= P(b=+|C) - P(a=H|C)P_{H, +} - P(a=S|C)P_{S, +} \\
+	\delta_{+} &= 0.41 - 0.50 \cdot 0.88 - 0.50 \cdot 0.70 \\
+	\delta_{+} &= -0.38
+	\end{align}
+	
+	and
+	
+	\begin{align}
+	\delta_{-} &= P(b=-|C) - P(a=H|C)P_{H, -} - P(a=S|C)P_{S, -} \\
+	\delta_{-} &= .59 - 0.50 \cdot .12 - 0.50 \cdot 0.30 \\
+	\delta_{-} &= 0.38
+	\end{align}
+	
+	Thus, for $\Pi_\pm$, we get
+	
+	\begin{align}
+	\Pi_{+} &= P(a=H|C)P(a=S|C)P_{H, +}P_{S_+}\\
+	\Pi_{+} &= 0.50 \cdot 0.50 \cdot 0.88 \cdot 0.70\\
+	\Pi_{+} &= 0.154
+	\end{align}
+	
+	and 
+	
+	\begin{align}
+	\Pi_- &= P(a = S|C)P(a=H|C)P_{H, -}P{S, -}\\
+	\Pi_-&= 0.50 \cdot 0.50 \cdot .12 \cdot .30\\
+	\Pi_-&= .009
+	\end{align}
+	
+	From this, we can get the normalized coefficients of incompatibility as being
+	\begin{align}
+	\lambda_{+} = \frac{\delta_{+}}{2 \sqrt{\Pi_{+}}}= \frac{-0.38}{2\sqrt{0.154}} \approx -0.484
+	\end{align}
+	and 
+	\begin{align}
+	\lambda_{-} = \frac{\delta_{-}}{2 \sqrt{\Pi_{-}}}= \frac{0.38}{2\sqrt{0.009}} = 2.003
+	\end{align}
+	 
+	Thus, from the normalized coefficient of incompatibility of contexts, the phases follows bellow. Notice once again that since $|\lambda_{-}$ is not within the range of $\arccos$, we use arccosh instead. 
+	
+	\begin{align}
+	\theta_{+} &= \arccos(\lambda_{+}) = \arccos(|-0.484|) \approx 2.076 \  \text{radians} \\
+	\theta_{-} &= \text{arccosh}(\lambda_{-}) = \text{arccosh}(|2.003|) \approx 1.319\ \text{radians}
+	\end{align}
+	
+%	\section{Discussion of results}
+	\section{Discussion}
+	
+	% https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3159692/
+	
+	
+	In quantum mechanics (specifically \cite{dirac_1930}), the angles $\theta_{+}$ and $\theta_{-}$ are known as the phase. Though this angle has a natural interpretation in quantum mechanics (e.g. in double slit proton interference), it is slightly more abstract in a cognitive setting. \cite{Khrennnikov10} interprets it as being a measure of the incompatibility of events. So, in this case, $\theta_{+}$ represents the degree to which being hungry is incompatible with deciding on a future food choice. Employing the visualization described in Section 2.2, we can think of $\theta_{+}$ as being the angle in which the U-V-W axis set is rotated from the A-B-C axis set. {\sf This is where a graph of our results would be really nice.}
+	
+	Unlike the arbitrary $\alpha$ coefficient in the \cite{loewenstein_odonoghue_rabin_2003} model, $\theta$ allows us to interpret decisions made under conflict that exhibit projection bias. For emphasis, this result \textit{does not} claim that something quantum-like is going on in the human brain. Rather, we are applying a framework that has the concept of contextuality inducing interference in certain situations. This idea of interference explains the non-classical probabilistic behavior that we routinely see humans exhibit. 	
+	
+	Most importantly, this $\theta$ term is especially meaningful as it links our model to a robust area of literature that describes many more cognitive effects than just projection bias. This idea of event compatibility, context, and interference can naturally be extended to disparate phenomena in cognitive science. In effect, this result builds on the literature, suggesting that quantum probability interference can explain ostensibly disparate cognitive phenomena. Some recent applications have even extended beyond human biology to that of cells in \cite{basieva_khrennikov_ohya_yamato_2011}.	
+	
+	% Notes: theta is rotation! Just the three axes. ex: I am assessing if I want vacation vs friend. map to snacks. No projection bias means theta = 0, mention that. Check out guy interested in Car. Assesses wife car. In Bruza book.
+	
+	
+	%Some pseudonotes (because it may not be a necessary section, and I would like to discuss it Friday). In particular, I think it would be important to further discuss the meaning of $\theta$, along with trying to graph the two results. However, I will need some help with this as I am slightly stuck on how to represent this as vectors (or if its even possible?). Here is a layout idea I have:
+	%\begin{itemize}
+	%	\item Explain meaning of theta in both theoretical and cognitive terms {\sf Good idea.}
+	%	is rotation! Just the three axes. Super easy. ex: I am assessing if I want vacation vs friend. map to snacks. No projection bias means theta = 0, mention that. Check out guy interested in Car. Assesses wife car. In Bruza book.
+		
+	%	\item potentially extend to the vector that Bruza et al do in their appendix (they define $\phi_0$ as the 2x1 col matrix containing the amplitudes a player believes the other will defect/cooperates as equal to $\phi_1$ (2x1) which is the player's amplitudes of defecting/cooperating times V, which is a 2x2 matrix) {\sf Interesting. I'll take a look at this.}
+	%	\item Potentially graph the results above (with your help as I am stuck here) {\sf Interesting. I'll take a look at this.}
+%		\item Then use this information to explain why it is better than prior approaches {\sf Yes.}
+	%\end{itemize}
+	
+	\section{Conclusion}
+	Quantum cognition's probability theory provides a new, more effective and meaningful way to model and understand projection bias. Prior approaches rely either on heuristics or predictive models who's terms are not grounded cognitive science. On the other hand, the contextual probability interference model provides a framework that provides two unique benefits. 
+	Firstly, it presents a rigorous numerical approach that can predict human behavior. Secondly, it has an underlying mathematical model that is grounded in cognitive science such that its results and axioms map onto observable human behavior.  
+	
+	This, coupled with other successful applications of probability interference which model human behavior that violates \textit{traditional} probability theory, suggests that quantum cognition has larger applications to models of human decision making \cite{bruza_wang_busemeyer_2015, khrennikov_haven_2009}. In particular, other situations with incompatible contexts could provide a particularly fruitful area of research. For example, prospect theory, confirmation bias, overconfidence, and limited attention are some of many potential 'irrational' human behaviors which could be explained by the theory. 
+	
+	As a consequence, quantum cognition may have applications ranging from finance, to health-care, to public policy and law. The idea of interference can In fact, the theory's recent breakthroughs could extend beyond modeling human behavior. Recent research in machine learning by \cite{dong_li_tarn_2008} on quantum reinforcement learning and \cite{Farhi-a} and \cite{kouda2005} on quantum neural networks has shown there is possibility that the mathematical framework may be more effective at helping machine learning systems produce more accurate results in a more computationally efficient manner. More experimental research is needed to extend these models and test their validity in a real-world setting. 
+	
+\bibliographystyle{apalike}
+\bibliography{refs-v2}
+\end{document}
+

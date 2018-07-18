@@ -1,4 +1,8 @@
 # quantum_cognition 
+
+##### get the latest paper
+The latest of my results can be found in the folder papers/thesis_final.pdf
+
 This repo contains much of the research I have been conducting for my honors thesis for the last few months. Some documents and programs are not contained at the moment, as they are in development. 
 
 To get more acquainted with the field, feel free to skim some of the papers. The Khrennikov and Haven paper provides the best overview. 

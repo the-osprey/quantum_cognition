@@ -1,6 +1,6 @@
 # quantum_cognition 
 
-##### Get the latest paper & model
+#### Get the latest paper & model
 The latest of my results can be found in the folder papers/thesis_final.pdf
 The Python file that applies my research to a few datasets can be found in the main folder as quantum_cognition_disjunction_effect.ipynb
 

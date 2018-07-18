@@ -1,12 +1,13 @@
 # quantum_cognition 
 
-##### get the latest paper
+##### Get the latest paper & model
 The latest of my results can be found in the folder papers/thesis_final.pdf
+The Python file that applies my research to a few datasets can be found in the main folder as quantum_cognition_disjunction_effect.ipynb
 
-This repo contains much of the research I have been conducting for my honors thesis for the last few months. Some documents and programs are not contained at the moment, as they are in development. 
+#### A brief overview
+
+This repo contains much of the research I have been conducting for my honors thesis for the last few months. Some documents and programs are not contained at the moment, as they are in development. It is regarding decision making under conflict. That is, humans *do not* follow traditional Baysian probability theory. Rather, recent research has shown that a superset of classical probability theory, John von Neumann's quantum probability theory, helps model this behavior much more accurately. The applications of this field ranges from cognitive science, to economics, to machine learning.
 
 To get more acquainted with the field, feel free to skim some of the papers. The Khrennikov and Haven paper provides the best overview. 
 
-Interestingly, most of this research is in Mathematics, Cognitive Science, and psychology! However, it does have economic applications among others. My ultimate goal  is to apply this to neural nets as there are some fascinating opportunites with this.
-
-You can find my quantum probability model in the Jupyter Notebook files (.ipynb). The notebook shows all the cells as they look after being run, so no need to worry about dependencies since I use a few (e.g. Seaborne). The research based papers are TeX documents.  
+My ultimate goal  is to apply this to neural nets as there are some fascinating opportunites with this.
